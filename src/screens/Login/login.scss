@@ -1,0 +1,33 @@
+.entry-form {
+  position: relative;
+  width: 30%;
+  margin: auto;
+
+  .register-form-title {
+    padding-top: 50px;
+  }
+  .login-form-title {
+    padding-top: 200px;
+  }
+  h1 {
+    padding-bottom: 50px;
+  }
+  button.right-side {
+    display: flex;
+    justify-content: flex-end;
+  }
+  button.login-here {
+    display: flex;
+    justify-content: center;
+  }
+  .login-btn {
+    text-align: right;
+    button {
+      span {
+        svg {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
