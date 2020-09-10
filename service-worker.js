@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/naukri-portal-dummy/precache-manifest.0eb12fd79eaaad6327eda86bcd9dd184.js"
+  "/naukri-portal-dummy/precache-manifest.e454824567cb28a7600bc02e489030fc.js"
 );
 
 self.addEventListener('message', (event) => {

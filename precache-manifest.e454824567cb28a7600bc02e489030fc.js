@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "059c9c84e783c6053d3b9917def09085",
+    "revision": "6254adb090be14fdbee1c1a88534014b",
     "url": "/naukri-portal-dummy/index.html"
   },
   {
-    "revision": "7ce2e0ffb1c03cee0b8e",
+    "revision": "6514e26b0530318e7b09",
     "url": "/naukri-portal-dummy/static/css/main.022fdc10.chunk.css"
   },
   {
-    "revision": "dc1759e1b76f022f734f",
-    "url": "/naukri-portal-dummy/static/js/2.a3c7e695.chunk.js"
+    "revision": "2c598980bf0a59d88d29",
+    "url": "/naukri-portal-dummy/static/js/2.76e62847.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/naukri-portal-dummy/static/js/2.a3c7e695.chunk.js.LICENSE.txt"
+    "url": "/naukri-portal-dummy/static/js/2.76e62847.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7ce2e0ffb1c03cee0b8e",
-    "url": "/naukri-portal-dummy/static/js/main.2687c996.chunk.js"
+    "revision": "6514e26b0530318e7b09",
+    "url": "/naukri-portal-dummy/static/js/main.8e656441.chunk.js"
   },
   {
     "revision": "84108bcca614e4a12a82",
