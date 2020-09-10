@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/sanju-developer/naukri-portal-dummy/static/css/main.022fdc10.chunk.css",
-    "main.js": "/sanju-developer/naukri-portal-dummy/static/js/main.4135bb40.chunk.js",
-    "main.js.map": "/sanju-developer/naukri-portal-dummy/static/js/main.4135bb40.chunk.js.map",
+    "main.js": "/sanju-developer/naukri-portal-dummy/static/js/main.2e1c1f55.chunk.js",
+    "main.js.map": "/sanju-developer/naukri-portal-dummy/static/js/main.2e1c1f55.chunk.js.map",
     "runtime-main.js": "/sanju-developer/naukri-portal-dummy/static/js/runtime-main.0302ab59.js",
     "runtime-main.js.map": "/sanju-developer/naukri-portal-dummy/static/js/runtime-main.0302ab59.js.map",
     "static/js/2.a3c7e695.chunk.js": "/sanju-developer/naukri-portal-dummy/static/js/2.a3c7e695.chunk.js",
     "static/js/2.a3c7e695.chunk.js.map": "/sanju-developer/naukri-portal-dummy/static/js/2.a3c7e695.chunk.js.map",
     "index.html": "/sanju-developer/naukri-portal-dummy/index.html",
-    "precache-manifest.68f3a2b28c48038cacb619bd0365477f.js": "/sanju-developer/naukri-portal-dummy/precache-manifest.68f3a2b28c48038cacb619bd0365477f.js",
+    "precache-manifest.f8be59da9f70d0117731ff60e690f087.js": "/sanju-developer/naukri-portal-dummy/precache-manifest.f8be59da9f70d0117731ff60e690f087.js",
     "service-worker.js": "/sanju-developer/naukri-portal-dummy/service-worker.js",
     "static/css/main.022fdc10.chunk.css.map": "/sanju-developer/naukri-portal-dummy/static/css/main.022fdc10.chunk.css.map",
     "static/js/2.a3c7e695.chunk.js.LICENSE.txt": "/sanju-developer/naukri-portal-dummy/static/js/2.a3c7e695.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.0302ab59.js",
     "static/js/2.a3c7e695.chunk.js",
     "static/css/main.022fdc10.chunk.css",
-    "static/js/main.4135bb40.chunk.js"
+    "static/js/main.2e1c1f55.chunk.js"
   ]
 }

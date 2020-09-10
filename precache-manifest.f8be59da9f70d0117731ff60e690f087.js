@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "408d72bfc019df5843590a49c56921dd",
+    "revision": "e35e1c4928ab90c3aa46eefd13886c02",
     "url": "/sanju-developer/naukri-portal-dummy/index.html"
   },
   {
-    "revision": "6f8117a81f9cb6d018f2",
+    "revision": "46ee8eaa991e0fcf0a9e",
     "url": "/sanju-developer/naukri-portal-dummy/static/css/main.022fdc10.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sanju-developer/naukri-portal-dummy/static/js/2.a3c7e695.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6f8117a81f9cb6d018f2",
-    "url": "/sanju-developer/naukri-portal-dummy/static/js/main.4135bb40.chunk.js"
+    "revision": "46ee8eaa991e0fcf0a9e",
+    "url": "/sanju-developer/naukri-portal-dummy/static/js/main.2e1c1f55.chunk.js"
   },
   {
     "revision": "a8d62e600db95d526adc",
