@@ -2,7 +2,7 @@
   "name": "naukri-dummy",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/sanju-developer/naukri-portal-dummy",
+  "homepage": "https://sanju-developer.github.io/naukri-portal-dummy",
   "dependencies": {
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.5.0",

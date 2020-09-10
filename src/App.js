@@ -8,11 +8,11 @@ import {
 } from "utils/constants/commonConstants";
 import CandidateDashboard from "screens/CandidateDashboard";
 import RecruiterDashboard from "screens/RecruiterDashboard";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <HashRouter basename="/">
       <div className="App">
         <ErrorBoundary>
           {JSON.parse(getUserRoleFromLocalStorage()) === 0 && (
@@ -28,7 +28,7 @@ function App() {
           {!getTokenFromLocalStorage() && <Routing />}
         </ErrorBoundary>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
