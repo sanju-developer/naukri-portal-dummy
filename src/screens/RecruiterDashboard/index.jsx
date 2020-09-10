@@ -6,11 +6,14 @@ import { iconName } from "components/Icons/iconNames";
 import CreateJobModal from "components/Modals/CreateJobModal";
 import { getPostedJobs } from "redux/actions/recruiterActions/getPostedJobsAction";
 import { deletePostedJobs } from "redux/actions/recruiterActions/deletePostedJobAction";
+import { useHistory } from "react-router-dom";
 
-import ListPostedJobs from "./ListPostedJobs";
+import ListPostedJobs from "components/Lists/ListPostedJobs";
 import "./recruiterDashboard.scss";
 import { RECRUITER_CREATE_JOB, commonActionType } from "redux/constants";
 import { commonActionCreator } from "redux/actions/commonActionCreator";
+import Topbar from "components/Topbar";
+import { recruiterScreen } from "utils/constants/commonConstants";
 
 function RecruiterDashboard(props) {
   const {
@@ -23,7 +26,7 @@ function RecruiterDashboard(props) {
     clearDataCreateJobData
   } = props;
   const [showCreateJobModal, setShowCreateJobModal] = useState(false);
-
+  const history = useHistory();
   useEffect(() => {
     getPostedJobs();
   }, []);
@@ -41,7 +44,8 @@ function RecruiterDashboard(props) {
   };
 
   return (
-    <div className="container-fluid recruiter-container">
+    <div className="recruiter-container">
+      <Topbar history={history} />
       <div className="create-job-section">
         <button
           data-toggle="modal"
@@ -62,7 +66,8 @@ function RecruiterDashboard(props) {
         apiData && (
           <ListPostedJobs
             apiData={apiData?.data}
-            deleteBtnHandler={deleteBtnhandler}
+            btnHandler={deleteBtnhandler}
+            screen={recruiterScreen}
           />
         )
       )}

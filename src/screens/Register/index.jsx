@@ -94,9 +94,11 @@ function RegisterForm(props) {
       <h1 className="display-4 text-left register-form-title">Register</h1>
       {apiError && (
         <div className="error">
-          {apiError?.errors.map(err => (
-            <p>{err.name}</p>
-          ))}
+          {apiError?.errors ? (
+            apiError?.errors.map(err => <p>{err.name}</p>)
+          ) : (
+            <p>{apiError.message}</p>
+          )}
         </div>
       )}
       <form>

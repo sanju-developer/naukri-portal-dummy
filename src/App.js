@@ -7,27 +7,28 @@ import {
   getTokenFromLocalStorage
 } from "utils/constants/commonConstants";
 import CandidateDashboard from "screens/CandidateDashboard";
-import Topbar from "components/Topbar";
 import RecruiterDashboard from "screens/RecruiterDashboard";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <ErrorBoundary>
-        {JSON.parse(getUserRoleFromLocalStorage()) === 0 ? (
-          <>
-            <Topbar />
-            <RecruiterDashboard />
-          </>
-        ) : (
-          <>
-            <Topbar />
-            <CandidateDashboard />
-          </>
-        )}
-        {!getTokenFromLocalStorage() && <Routing />}
-      </ErrorBoundary>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <ErrorBoundary>
+          {JSON.parse(getUserRoleFromLocalStorage()) === 0 && (
+            <>
+              <RecruiterDashboard />
+            </>
+          )}
+          {JSON.parse(getUserRoleFromLocalStorage()) === 1 && (
+            <>
+              <CandidateDashboard />
+            </>
+          )}
+          {!getTokenFromLocalStorage() && <Routing />}
+        </ErrorBoundary>
+      </div>
+    </BrowserRouter>
   );
 }
 

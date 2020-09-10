@@ -28,8 +28,8 @@ export const resetPasswordFormField = {
 };
 
 export const UserRoles = [
-  { id: "ur1", value: "Candidate" },
-  { id: "ur2", value: "Recruiter" }
+  { id: "ur2", value: "Recruiter" },
+  { id: "ur1", value: "Candidate" }
 ];
 
 export const errorMessages = {
@@ -95,3 +95,7 @@ export function getUserRoleFromLocalStorage() {
 export function clearLocalStorage() {
   localStorage.clear();
 }
+
+export const candidateScreen = "candidateScreen";
+export const recruiterScreen = "recruiterScreen";
+export const previousAppliedJobs = "previousAppliedJobs";

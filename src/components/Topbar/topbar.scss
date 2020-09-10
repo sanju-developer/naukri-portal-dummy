@@ -1,7 +1,10 @@
 @import "assets/styles/colors.scss";
 
 .topbar-container {
-  padding: 24px 36px;
+  padding: 24px;
   background: $black;
   color: $white;
+  position: sticky;
+  top: 0;
+  z-index: 9;
 }

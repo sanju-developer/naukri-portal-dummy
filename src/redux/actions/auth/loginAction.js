@@ -1,4 +1,8 @@
-import { commonActionType, LOGINREDUXCONSTANT } from "redux/constants";
+import {
+  commonActionType,
+  LOGINREDUXCONSTANT,
+  actionTypes
+} from "redux/constants";
 import { commonActionCreator } from "../commonActionCreator";
 import { LoginUserService } from "services/auth/loginService";
 
@@ -33,5 +37,13 @@ export const LoginUser = loginUserData => {
           )
         )
       );
+  };
+};
+
+export const loggedout = () => {
+  return dispatch => {
+    dispatch(
+      commonActionCreator(`${LOGINREDUXCONSTANT}_${actionTypes.logout}`)
+    );
   };
 };

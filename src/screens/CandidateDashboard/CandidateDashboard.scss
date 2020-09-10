@@ -1,0 +1,10 @@
+@import "assets/styles/colors.scss";
+
+.row {
+  margin: 26px 0px;
+  .active {
+    background-color: $grey;
+    color: $white;
+    border-radius: 8px;
+  }
+}

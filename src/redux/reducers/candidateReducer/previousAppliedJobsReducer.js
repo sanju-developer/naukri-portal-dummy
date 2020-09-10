@@ -1,6 +1,7 @@
 import {
   commonActionType,
-  LOGINREDUXCONSTANT,
+  PREVIOUS_APPLIED_JOBS,
+  APPLIED_JOBS,
   actionTypes
 } from "redux/constants";
 
@@ -11,23 +12,22 @@ const initialState = {
   apiError: null
 };
 
-const loginReducer = (state = initialState, action) => {
+const previousAppliedJobsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case `${LOGINREDUXCONSTANT}_${commonActionType.isApiLoading}`:
+    case `${PREVIOUS_APPLIED_JOBS}_${commonActionType.isApiLoading}`:
       return {
         ...state,
         isApiLoading: action.payload
       };
-    case `${LOGINREDUXCONSTANT}_${commonActionType.setData}`:
+    case `${PREVIOUS_APPLIED_JOBS}_${commonActionType.setData}`:
       return {
         ...state,
         isApiLoading: false,
         apiData: action.payload,
         isApiFailed: false,
-        apiError: null,
-        isLoggedIn: true
+        apiError: null
       };
-    case `${LOGINREDUXCONSTANT}_${commonActionType.setError}`:
+    case `${PREVIOUS_APPLIED_JOBS}_${commonActionType.setError}`:
       return {
         ...state,
         isApiFailed: true,
@@ -35,10 +35,13 @@ const loginReducer = (state = initialState, action) => {
         apiError: action.payload
       };
 
-    case `${LOGINREDUXCONSTANT}_${actionTypes.logout}`:
+    case `${PREVIOUS_APPLIED_JOBS}_${commonActionType.clearData}`:
       return {
         ...state,
-        isLoggedIn: false
+        isApiFailed: false,
+        isApiLoading: false,
+        apiError: null,
+        apiData: null
       };
 
     default:
@@ -46,4 +49,4 @@ const loginReducer = (state = initialState, action) => {
   }
 };
 
-export default loginReducer;
+export default previousAppliedJobsReducer;

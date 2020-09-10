@@ -19,7 +19,7 @@ import { ErrorNames } from "components/Errors/errorNames";
 import { LoginUser } from "redux/actions/auth/loginAction";
 
 function LoginForm(props) {
-  const { loginUser, apiData, apiError, isApiLoading } = props;
+  const { loginUser, apiData, apiError, isApiLoading, isLoggedIn } = props;
   const history = useHistory();
   const [isButtonDisable, setIsButtonDisable] = useState(true);
   const [loginForm, setLoginForm] = useState(loginFormField);
@@ -43,12 +43,12 @@ function LoginForm(props) {
       setTokenToLocalStorage(apiData?.data?.token);
       setUserIdToLocalStorage(apiData?.data?.id);
       setUserRoleToLocalStorage(apiData?.data?.userRole);
-      if (apiData?.code === 200 && apiData?.data?.userRole === 0)
+      if (apiData?.code === 200 && apiData?.data?.userRole === 0 && isLoggedIn)
         history.replace(routingEndpoints.recruiterDashboard);
+      if (apiData?.code === 200 && apiData?.data?.userRole === 1 && isLoggedIn)
+        history.replace(routingEndpoints.candidateDashboard);
     }
-    if (apiData?.code === 200 && apiData?.data?.userRole === 1)
-      history.replace(routingEndpoints.candidateDashboard);
-  }, [apiData]);
+  }, [apiData, isLoggedIn]);
 
   const onChangeHandler = event => {
     setLoginForm({
@@ -107,7 +107,7 @@ function LoginForm(props) {
         <button
           type="submit"
           onClick={() => history.push(routingEndpoints.forgotPswd)}
-          className="right-side w-100 btn btn-link"
+          className="right-side w-100 btn btn-link d-none"
         >
           Forgot Password?
         </button>
@@ -150,7 +150,8 @@ const mapStateToProps = state => {
   return {
     apiData: state.login.apiData,
     apiError: state.login.apiError,
-    isApiLoading: state.login.isApiLoading
+    isApiLoading: state.login.isApiLoading,
+    isLoggedIn: state.login.isLoggedIn
   };
 };
 

@@ -1,5 +1,6 @@
 export const iconName = {
   rightArrow: "rightArrow",
   add: "add",
-  delete: "delete"
+  delete: "delete",
+  job: "job"
 };

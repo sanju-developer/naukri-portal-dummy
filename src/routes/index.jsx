@@ -10,13 +10,11 @@ import CandidateDashboard from "screens/CandidateDashboard";
 export default function Routing() {
   return (
     <Router>
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
       <Switch>
         <Route exact path="/">
           <RegisterForm />
         </Route>
-        <Route exact path={routingEndpoints.login}>
+        <Route exact strict path={routingEndpoints.login}>
           <LoginForm />
         </Route>
         <Route exact path={routingEndpoints.register}>

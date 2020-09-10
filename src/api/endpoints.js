@@ -6,7 +6,7 @@ export const routingEndpoints = {
   candidateDashboard: "/candidate-dashboard"
 };
 
-const JOBS = "jobs";
+export const JOBS = "jobs";
 const RECRUITER = "recruiters";
 export const CANDIDATES = "candidates";
 
@@ -15,5 +15,6 @@ export const apiEndpoints = {
   login: "auth/login",
   createJob: `${JOBS}/`,
   getPostedJobs: `${RECRUITER}/${JOBS}`,
-  deletePostedJob: `${JOBS}?`
+  deletePostedJob: `${JOBS}?`,
+  fetchAllAvalaibleJobs: `${CANDIDATES}/${JOBS}?`
 };
