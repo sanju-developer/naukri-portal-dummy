@@ -5,8 +5,9 @@ import {
 } from "redux/constants";
 import { commonActionCreator } from "../commonActionCreator";
 import { LoginUserService } from "services/auth/loginService";
+import { RegisterUserService } from "services/auth/registerService";
 
-export const LoginUser = loginUserData => {
+export const LoginUser = (formData, callFrom) => {
   return dispatch => {
     dispatch(
       commonActionCreator(
@@ -14,7 +15,7 @@ export const LoginUser = loginUserData => {
         true
       )
     );
-    LoginUserService(loginUserData)
+    service(formData, callFrom)
       .then(response => {
         dispatch(
           commonActionCreator(
@@ -47,3 +48,9 @@ export const loggedout = () => {
     );
   };
 };
+
+function service(formData, callFrom) {
+  return callFrom === "register"
+    ? RegisterUserService(formData)
+    : LoginUserService(formData);
+}

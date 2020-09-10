@@ -19,7 +19,7 @@ import {
 import "./register.scss";
 import Error from "components/Errors";
 import { ErrorNames } from "components/Errors/errorNames";
-import { RegisterUser } from "redux/actions/auth/registerAction";
+import { LoginUser } from "redux/actions/auth/loginAction";
 
 function RegisterForm(props) {
   const { registerUser, apiData, apiError, isApiLoading } = props;
@@ -183,15 +183,15 @@ function RegisterForm(props) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    registerUser: registerData => dispatch(RegisterUser(registerData))
+    registerUser: registerData => dispatch(LoginUser(registerData, "register"))
   };
 };
 
 const mapStateToProps = state => {
   return {
-    apiData: state.register.apiData,
-    apiError: state.register.apiError,
-    isApiLoading: state.register.isApiLoading
+    apiData: state.userData.apiData,
+    apiError: state.userData.apiError,
+    isApiLoading: state.userData.isApiLoading
   };
 };
 

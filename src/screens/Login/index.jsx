@@ -142,16 +142,16 @@ function LoginForm(props) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginUser: registerData => dispatch(LoginUser(registerData))
+    loginUser: registerData => dispatch(LoginUser(registerData, "login"))
   };
 };
 
 const mapStateToProps = state => {
   return {
-    apiData: state.login.apiData,
-    apiError: state.login.apiError,
-    isApiLoading: state.login.isApiLoading,
-    isLoggedIn: state.login.isLoggedIn
+    apiData: state.userData.apiData,
+    apiError: state.userData.apiError,
+    isApiLoading: state.userData.isApiLoading,
+    isLoggedIn: state.userData.isLoggedIn
   };
 };
 

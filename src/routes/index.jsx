@@ -14,7 +14,7 @@ export default function Routing() {
         <Route exact path="/">
           <RegisterForm />
         </Route>
-        <Route exact strict path={routingEndpoints.login}>
+        <Route exact path={routingEndpoints.login}>
           <LoginForm />
         </Route>
         <Route exact path={routingEndpoints.register}>

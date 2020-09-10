@@ -38,7 +38,8 @@ const loginReducer = (state = initialState, action) => {
     case `${LOGINREDUXCONSTANT}_${actionTypes.logout}`:
       return {
         ...state,
-        isLoggedIn: false
+        isLoggedIn: false,
+        apiData: null
       };
 
     default:

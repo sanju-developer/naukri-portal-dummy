@@ -14,7 +14,6 @@ export const actionTypes = {
   logout: "LOGOUT"
 };
 
-export const REGISTERREDUXCONSTANT = "REGISTER";
 export const LOGINREDUXCONSTANT = "LOGIN";
 export const RECRUITER_CREATE_JOB = "RECRUITER_CREATE_JOB";
 export const RECRUITER_POSTED_JOBS = "RECRUITER_POSTED_JOBS";
