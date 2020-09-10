@@ -1,13 +1,10 @@
 import axios from "axios";
-import ServerConfig from "config";
-
-const { API } = ServerConfig;
+import { API, getTokenFromLocalStorage } from "utils/constants/commonConstants";
 
 export const api = (endpoint, apiMethod, data, queryParams) => {
   const apiParameter = {
     method: apiMethod,
-    url: API.BASE_URL + endpoint,
-    withCredentials: true
+    url: API.baseUrl + endpoint
   };
   // Conditinal check for sending data/queryparams in apiParameter
   if (data !== null) {
@@ -16,6 +13,14 @@ export const api = (endpoint, apiMethod, data, queryParams) => {
   if (queryParams !== undefined) {
     apiParameter.params = queryParams;
   }
+
+  if (getTokenFromLocalStorage()) {
+    apiParameter.headers = {
+      Authorization: `${getTokenFromLocalStorage()}`,
+      withCredentials: true
+    };
+  }
+
   return axiosApi(apiParameter);
 };
 

@@ -11,6 +11,9 @@ function Error(props) {
 
       case ErrorNames.emailNotvalid:
         return errorMessages.emailNotvalid;
+
+      case ErrorNames.passwordLengthShouldBeMinimumOf6Digit:
+        return errorMessages.passwordLengthShouldBeMinimumOf6DigitMessage;
     }
   };
 

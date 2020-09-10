@@ -7,8 +7,10 @@ function PswdConfirmPswd(props) {
     password,
     confirmPassword,
     onChangeHandler,
-    isPasswordAndConfirmPasswordEqual
+    isPasswordAndConfirmPasswordEqual,
+    isBtnClicked
   } = props;
+
   return (
     <>
       <div className="form-group text-left">
@@ -21,6 +23,10 @@ function PswdConfirmPswd(props) {
           value={password}
           onChange={onChangeHandler}
         />
+        <small className="smart-desc pt-1">Minimum length of 6 digits</small>
+        {password.length < 6 && isBtnClicked && (
+          <Error type={ErrorNames.passwordLengthShouldBeMinimumOf6Digit} />
+        )}
       </div>
       <div className="form-group text-left">
         <label htmlFor="confirmpswd">Confirm Password</label>
@@ -32,8 +38,11 @@ function PswdConfirmPswd(props) {
           value={confirmPassword}
           onChange={onChangeHandler}
         />
+        {confirmPassword.length < 6 && isBtnClicked && (
+          <Error type={ErrorNames.passwordLengthShouldBeMinimumOf6Digit} />
+        )}
       </div>
-      {isPasswordAndConfirmPasswordEqual && (
+      {!isPasswordAndConfirmPasswordEqual && isBtnClicked && (
         <Error type={ErrorNames.passwordAndConfirmPssword} />
       )}
     </>

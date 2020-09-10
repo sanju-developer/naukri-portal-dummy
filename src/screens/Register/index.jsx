@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { iconName } from "components/Icons/iconNames";
 import Icons from "components/Icons";
@@ -9,14 +10,19 @@ import { routingEndpoints } from "api/endpoints";
 import {
   registerFormField,
   UserRoles,
-  emailRegex
+  emailRegex,
+  setTokenToLocalStorage,
+  setUserIdToLocalStorage,
+  setUserRoleToLocalStorage
 } from "utils/constants/commonConstants";
 
 import "./register.scss";
 import Error from "components/Errors";
 import { ErrorNames } from "components/Errors/errorNames";
+import { RegisterUser } from "redux/actions/auth/registerAction";
 
 function RegisterForm(props) {
+  const { registerUser, apiData, apiError, isApiLoading } = props;
   const history = useHistory();
   const [registerForm, setRegisterForm] = useState(registerFormField);
   const [isButtonDisable, setIsButtonDisable] = useState(true);
@@ -25,11 +31,12 @@ function RegisterForm(props) {
     setIsPasswordAndConfirmPasswordEqual
   ] = useState(false);
   const [isEmailvalid, setIsEmailvalid] = useState(false);
+  const [isBtnClicked, setIsBtnClicked] = useState(false);
 
   useEffect(() => {
     if (
-      registerForm.confirmPassword.length !== 0 &&
-      registerForm.password.length !== 0 &&
+      registerForm.confirmPassword.length >= 6 &&
+      registerForm.password.length >= 6 &&
       registerForm.name.length !== 0 &&
       registerForm.email.length !== 0 &&
       registerForm.skills.length !== 0
@@ -37,6 +44,22 @@ function RegisterForm(props) {
       setIsButtonDisable(false);
     } else setIsButtonDisable(true);
   }, [registerForm]);
+
+  useEffect(() => {
+    if (apiData) {
+      setTokenToLocalStorage(apiData?.data?.token);
+      setUserIdToLocalStorage(apiData?.data?.id);
+      setUserRoleToLocalStorage(apiData?.data?.userRole);
+      if (apiData.code === 201)
+        history.replace(routingEndpoints.recruiterDashboard);
+    }
+  }, [apiData]);
+
+  useEffect(() => {
+    if (isEmailvalid && isPasswordAndConfirmPasswordEqual && isBtnClicked) {
+      registerUser(registerForm);
+    }
+  }, [isEmailvalid, isPasswordAndConfirmPasswordEqual, isBtnClicked]);
 
   const onChangeHandler = event => {
     setRegisterForm({
@@ -47,10 +70,14 @@ function RegisterForm(props) {
 
   const registerBtnHandle = e => {
     e.preventDefault();
-    if (registerForm.password === registerForm.confirmPassword) {
+    if (registerForm.password !== registerForm.confirmPassword) {
       setIsPasswordAndConfirmPasswordEqual(false);
     } else setIsPasswordAndConfirmPasswordEqual(true);
-    setIsEmailvalid(!emailRegex.test(registerForm.email.toLowerCase()));
+    setIsEmailvalid(emailRegex.test(registerForm.email.toLowerCase()));
+    setIsBtnClicked(true);
+    if (isEmailvalid && isPasswordAndConfirmPasswordEqual && isBtnClicked) {
+      registerUser(registerForm);
+    }
   };
 
   const onChangeSkillsHandler = data => {
@@ -65,6 +92,13 @@ function RegisterForm(props) {
   return (
     <div className="entry-form">
       <h1 className="display-4 text-left register-form-title">Register</h1>
+      {apiError && (
+        <div className="error">
+          {apiError?.errors.map(err => (
+            <p>{err.name}</p>
+          ))}
+        </div>
+      )}
       <form>
         <div className="form-group text-left">
           <label htmlFor="formname">Name</label>
@@ -103,26 +137,33 @@ function RegisterForm(props) {
             value={registerForm.email}
             onChange={onChangeHandler}
           />
-          {isEmailvalid && <Error type={ErrorNames.emailNotvalid} />}
+          {!isEmailvalid && isBtnClicked && (
+            <Error type={ErrorNames.emailNotvalid} />
+          )}
         </div>
         <PswdConfirmPswd
           password={registerForm.password}
           confirmPassword={registerForm.confirmPassword}
           onChangeHandler={onChangeHandler}
           isPasswordAndConfirmPasswordEqual={isPasswordAndConfirmPasswordEqual}
+          isBtnClicked={isBtnClicked}
         />
         <label htmlFor="skills">Skills</label>
         <SkillsField addSkills={onChangeSkillsHandler} />
         <div className="login-btn mt-4">
           <button
-            disabled={isButtonDisable}
+            disabled={isButtonDisable || isApiLoading}
             type="submit"
             className="btn btn-primary"
             onClick={registerBtnHandle}
           >
-            Register
+            {isApiLoading ? "Authenticating" : "Register"}
             <span className="pl-2">
-              <Icons type={iconName.rightArrow} />
+              {!isApiLoading ? (
+                <Icons type={iconName.rightArrow} />
+              ) : (
+                <span className="spinner-border"></span>
+              )}
             </span>
           </button>
         </div>
@@ -138,4 +179,18 @@ function RegisterForm(props) {
   );
 }
 
-export default RegisterForm;
+const mapDispatchToProps = dispatch => {
+  return {
+    registerUser: registerData => dispatch(RegisterUser(registerData))
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    apiData: state.register.apiData,
+    apiError: state.register.apiError,
+    isApiLoading: state.register.isApiLoading
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

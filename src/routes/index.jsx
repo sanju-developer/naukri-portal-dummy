@@ -4,6 +4,8 @@ import LoginForm from "screens/Login";
 import RegisterForm from "screens/Register";
 import { routingEndpoints } from "api/endpoints";
 import ForgotPassword from "screens/ForgotPassword";
+import RecruiterDashboard from "screens/RecruiterDashboard";
+import CandidateDashboard from "screens/CandidateDashboard";
 
 export default function Routing() {
   return (
@@ -22,6 +24,12 @@ export default function Routing() {
         </Route>
         <Route exact path={routingEndpoints.forgotPswd}>
           <ForgotPassword />
+        </Route>
+        <Route exact path={routingEndpoints.recruiterDashboard}>
+          <RecruiterDashboard />
+        </Route>
+        <Route exact path={routingEndpoints.candidateDashboard}>
+          <CandidateDashboard />
         </Route>
       </Switch>
     </Router>
