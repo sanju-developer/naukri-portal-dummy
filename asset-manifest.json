@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/naukri-portal-dummy/static/css/main.022fdc10.chunk.css",
-    "main.js": "/naukri-portal-dummy/static/js/main.8e656441.chunk.js",
-    "main.js.map": "/naukri-portal-dummy/static/js/main.8e656441.chunk.js.map",
+    "main.js": "/naukri-portal-dummy/static/js/main.19ecfb87.chunk.js",
+    "main.js.map": "/naukri-portal-dummy/static/js/main.19ecfb87.chunk.js.map",
     "runtime-main.js": "/naukri-portal-dummy/static/js/runtime-main.4b39b8ce.js",
     "runtime-main.js.map": "/naukri-portal-dummy/static/js/runtime-main.4b39b8ce.js.map",
     "static/js/2.76e62847.chunk.js": "/naukri-portal-dummy/static/js/2.76e62847.chunk.js",
     "static/js/2.76e62847.chunk.js.map": "/naukri-portal-dummy/static/js/2.76e62847.chunk.js.map",
     "index.html": "/naukri-portal-dummy/index.html",
-    "precache-manifest.e454824567cb28a7600bc02e489030fc.js": "/naukri-portal-dummy/precache-manifest.e454824567cb28a7600bc02e489030fc.js",
+    "precache-manifest.506eff44ff385b2fae915dbbf54d6ad9.js": "/naukri-portal-dummy/precache-manifest.506eff44ff385b2fae915dbbf54d6ad9.js",
     "service-worker.js": "/naukri-portal-dummy/service-worker.js",
     "static/css/main.022fdc10.chunk.css.map": "/naukri-portal-dummy/static/css/main.022fdc10.chunk.css.map",
     "static/js/2.76e62847.chunk.js.LICENSE.txt": "/naukri-portal-dummy/static/js/2.76e62847.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4b39b8ce.js",
     "static/js/2.76e62847.chunk.js",
     "static/css/main.022fdc10.chunk.css",
-    "static/js/main.8e656441.chunk.js"
+    "static/js/main.19ecfb87.chunk.js"
   ]
 }
